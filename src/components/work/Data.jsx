@@ -8,7 +8,7 @@ export const projectsData = [
         image: Work1,
         title: 'Mock University Website',
         category: 'web',
-        url: 'https://ctdev-mock-universite-site.netlify.app/'
+        url: 'https://ctdev-mock-uni.netlify.app/'
     },
     {
         id: 2,
