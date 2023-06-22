@@ -1,30 +1,48 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import "./header.css";
 
 const Header = () => {
-    /*=============== Change Background Header ===============*/
-    window.addEventListener("scroll", function(){
-        const header = document.querySelector(".header");
-        // when the scroll is higher than 200 viewport height, add the scroll-header class to a tag with the header tag
-        if (this.scrollY >= 80) header.classList.add("scroll-header");
-        else header.classList.remove("scroll-header");
-    });
-    /*=============== Toggle Menu ===============*/
-    const[Toggle, showMenu] = useState(false);
-    const[activeNav, setActiveNav] = useState("#home");
+  const [toggle, setToggle] = useState(false);
+  const [activeNav, setActiveNav] = useState("#home");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 50;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute("id");
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          setActiveNav(`#${sectionId}`);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
 
   return (
     <header className="header">
-        <nav className="nav container">
-            <a href="index.html" className="nav__logo">Trung</a>
+      <nav className="nav container">
+        <a href="index.html" className="nav__logo">Trung</a>
 
-            <div className={Toggle ? "nav__menu show-menu" : "nav__menu"}>
-                <ul className="nav__list grid">
-                    <li className="nav__item">
-                        <a href="#home" onClick={() => setActiveNav('#home')} className={activeNav === "#home" ? "nav__link active-link" : "nav__link"}>
-                            <i className="uil uil-estate nav__icon"></i> Home
-                        </a>
-                    </li>
+            <div className={toggle ? "nav__menu show-menu" : "nav__menu"}>
+            <ul className="nav__list grid">
+                <li className="nav__item">
+                <a href="#home" onClick={() => setActiveNav('#home')} className={activeNav === "#home" ? "nav__link active-link" : "nav__link"}>
+                    <i className="uil uil-estate nav__icon"></i> Home
+                </a>
+                </li>
                     <li className="nav__item">
                         <a href="#about" onClick={() => setActiveNav('#about')} className={activeNav === "#about" ? "nav__link active-link" : "nav__link"} >
                             <i className="uil uil-user nav__icon"></i> About
@@ -52,15 +70,15 @@ const Header = () => {
                     </li>
                 </ul>
 
-                <i class="uil uil-times nav__close" onClick={() => showMenu(!Toggle)}></i>
+                <i className="uil uil-times nav__close" onClick={handleToggle}></i>
             </div>
 
-            <div className="nav__toggle" onClick={() => showMenu(!Toggle)}>
-            <i class="uil uil-apps"></i>
-            </div>            
-        </nav>
+            <div className="nav__toggle" onClick={handleToggle}>
+          <i className="uil uil-apps"></i>
+        </div>
+      </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
