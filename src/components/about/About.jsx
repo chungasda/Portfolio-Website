@@ -9,7 +9,30 @@ import ReactJ from "../../assets/react.svg";
 import CV from "../../assets/Trung-CV.pdf";
 import Info from './Info';
 
-const About = () => {
+  function About() {
+    const skillsIcons = [
+      {
+        img: HTML5,
+        title: "HTML5",
+      },
+      {
+        img: CSS3,
+        title: "CSS3",
+      },
+      {
+        img: JavaScript,
+        title: "Java Script",
+      },
+      {
+        img: ReactJ,
+        title: "React",
+      },
+      {
+        img: Bootstrap,
+        title: "Tailwind CSS",
+      },
+    ];
+
   return (
     <section className="about section" id="about">
         <h2 className="section__title">About Me</h2>
@@ -24,26 +47,16 @@ const About = () => {
 
                 Starting off in the IT Sector has given me the ability to quickly adapt to high paced environments and resolve technical issues under pressure, as well as being able to work with cross-functional teams and communicate effectively with clients.<br/><br/></p>
                 <div className="about__stack">
-                  <p>Tech Stack</p>
-                    <div className="about__logos">
-                      <ul>
-                        <li>
-                          <img src={HTML5} title="HTML5" alt="skill__icon"/>
-                        </li>
-                        <li>
-                          <img src={CSS3} title="CSS3" alt="skill__icon"/>
-                        </li>
-                        <li>
-                          <img src={JavaScript} title="JavaScript" alt="skill__icon"/>
-                        </li>
-                        <li>
-                          <img src={Bootstrap} title="Bootstrap" alt="skill__icon"/>
-                        </li>
-                        <li>
-                          <img src={ReactJ} title="React" alt="skill__icon"/>
-                        </li>
-                      </ul>
-                    </div>
+                    <p id="tech__words">Tech Stack</p>
+                      <div className="about__logos">
+                        <ul>
+                          {skillsIcons.map((icon) => (
+                            <li key={icon.title}>
+                              <img src={icon.img} title={icon.title} alt="tech-logos" />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                 </div>
                 <a download="" href={CV} className="button button--flex">Download CV
                   <svg

@@ -14,6 +14,7 @@
 }
 
 .about__stack {
+    display: inline;
     align-items: center;
     justify-content: center;
     bottom: 0;
@@ -37,7 +38,7 @@
     align-items: center;
     background-color: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0,0,0,.09);
+    box-shadow: 0 0 10px rgba(0,0,0, .3);
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -169,6 +170,11 @@
   
   /* For small devices */
   @media screen and (max-width: 350px) {
+    .about__container{
+        grid-template-columns: 0.5fr 3fr;
+        margin-bottom: 65rem;
+    }
+
     .about__info{
         grid-template-columns: repeat(2, 1fr);
     }
@@ -182,12 +188,17 @@
 
     .about__stack{
         justify-content: center;
-        position: relative;
+        position: static;
         margin: 2rem;
+        flex-direction: column;
     }
 
     .about__data a{
         justify-content: center;
         display: flex;
+    }
+    
+    #tech__words{
+        display: none;
     }
   }
