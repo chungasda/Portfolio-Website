@@ -206,6 +206,10 @@ img {
 }
 
 @media screen and (max-width: 576px) {
+  .contact__container {
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+  }
 }
 
 /* For small devices */
@@ -217,5 +221,8 @@ img {
   .container {
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
+  }
+  .contact__container {
+    margin-left: 4rem;
   }
 }

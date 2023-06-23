@@ -51,10 +51,10 @@ function About() {
             Drupal to name a few).
             <br />
             <br />
-            Starting off in the IT Sector has given me the ability to quickly
-            adapt to high paced environments and resolve technical issues under
-            pressure, as well as being able to work with cross-functional teams
-            and communicate effectively with clients.
+            Having more than 2 years of experience in the IT Sector has given me
+            the ability to quickly adapt to high paced environments and resolve
+            technical issues under pressure, as well as being able to work with
+            cross-functional teams and communicate effectively with clients.
             <br />
             <br />
           </p>
@@ -70,11 +70,7 @@ function About() {
               </ul>
             </div>
           </div>
-          <a
-            download="Trung-Tran-CV.pdf"
-            href={CV}
-            className="button button--flex"
-          >
+          <a download="Trung-CV.pdf" href={CV} className="button button--flex">
             Download CV
             <svg
               class="button__icon"

@@ -117,7 +117,7 @@
 
 /* For medium devices */
 @media screen and (max-width: 768px) {
-  .contact_container {
+  .contact__container {
     grid-template-columns: 1fr;
     row-gap: 3rem;
   }
@@ -132,6 +132,12 @@
 }
 
 @media screen and (max-width: 576px) {
+  #contact.section {
+    align-items: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .contact__info {
     grid-template-columns: 1fr;
   }
