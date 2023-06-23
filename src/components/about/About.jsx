@@ -70,7 +70,11 @@ function About() {
               </ul>
             </div>
           </div>
-          <a download="" href={CV} className="button button--flex">
+          <a
+            download="Trung-Tran-CV.pdf"
+            href={CV}
+            className="button button--flex"
+          >
             Download CV
             <svg
               class="button__icon"
